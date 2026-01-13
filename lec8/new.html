@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Editable Div Limit</title>
+  <style>
+    .editable {
+      border: 1px solid #ccc;
+      padding: 8px;
+      width: 400px;
+      min-height: 120px;
+      font-size: 16px;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .exceed {
+      color: red;
+    }
+
+    .counter {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .counter.exceeded {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="editable" class="editable" contenteditable="true"></div>
+  <div id="counter" class="counter"></div>
+
+  <script>
+    const editable = document.getElementById('editable');
+    const counter = document.getElementById('counter');
+    const limit = 50; // عدد الأحرف المسموح
+
+    editable.addEventListener('keyup', () => {
+      // نجيب النص بدون وسوم HTML
+      const text = editable.innerText;
+      const allowed = text.slice(0, limit);
+      const extra = text.slice(limit);
+
+      // نعيد بناء المحتوى مع تلوين الأحرف الزائدة
+      editable.innerHTML = allowed +
+        (extra ? `<span class="exceed">${extra}</span>` : "");
+
+      // نحرك المؤشر لنهاية النص
+      const range = document.createRange();
+      const sel = window.getSelection();
+      range.selectNodeContents(editable);
+      range.collapse(false);
+      sel.removeAllRanges();
+      sel.addRange(range);
+
+      // تحديث العداد
+      const remaining = limit - text.length;
+      if (remaining >= 0) {
+        counter.textContent = `Remaining characters: ${remaining}`;
+        counter.classList.remove('exceeded');
+      } else {
+        counter.textContent = `Exceeded by ${Math.abs(remaining)} characters`;
+        counter.classList.add('exceeded');
+      }
+    });
+  </script>
+</body>
+
+</html>

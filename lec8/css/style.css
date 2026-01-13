@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* 
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #655757;
+  color: white;
+  border: none;
+  margin-top: 20px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.wrapper div {
+  border: 2px solid #655757;
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
+}
+
+button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+} */
+
+.text-container {
+  width: 300px;
+  /* background-color: #f00; */
+  position: relative;
+}
+
+.text-container .textarea {
+  width: 100%;
+  display: block;
+  border: 1px solid #ccc;
+  padding-bottom: 10px;
+  text-align: left;
+  min-height: 80px;
+}
+
+.text-container p {
+  position: absolute;
+  font-size: 10px;
+  bottom: 0px;
+  right: 10px;
+  margin: 2px;
+  background-color: #fff;
+}
+
+.text-container .textarea span {
+  color: red;
+}
