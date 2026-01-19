@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+  <link rel="stylesheet" href="css/output.css">
+</head>
+
+<body class="bg-gray-800 text-white">
+  <div class="max-w-2xl mx-auto mt-10">
+    <!-- <h1 class="text-center font-bold text-xl mb-4">Enter Your Favorite Fooooood ❤</h1> -->
+    <h1 class="text-center font-bold text-xl mb-4">Enter Your Password 🔒</h1>
+    <form action="">
+      <div class="inputs-wrapper grid gap-2">
+        <div class="relative">
+          <input class="bg-white text-black border rounded border-indigo-200 outline-none p-2 w-full" type="password"
+            placeholder="Enter password">
+          <i class="far fa-eye absolute right-2 top-3 text-gray-500 cursor-pointer show-pass"></i>
+        </div>
+      </div>
+      <button id="add-input" type="button"
+        class="bg-indigo-400/50 hover:bg-indigo-400 duration-300 p-2 text-white rounded mt-4 cursor-pointer"><i
+          class="fas fa-plus"></i></button>
+      <button
+        class="w-full bg-indigo-500 hover:bg-indigo-600 duration-300 p-2 text-white rounded mt-4 cursor-pointer">Submit</button>
+    </form>
+    <div class="result mt-4 flex gap-2 flex-wrap">
+
+    </div>
+  </div>
+
+  <script>
+    const btn = document.querySelector('#add-input')
+    const wrapper = document.querySelector('.inputs-wrapper')
+    const form = document.querySelector('form')
+    const result = document.querySelector('.result')
+
+    btn.onclick = (e) => {
+      e.preventDefault();
+      let item = `<div class="flex gap-1 items-center"><input class="bg-white border rounded border-indigo-200 outline-none p-2 w-full" type="text" placeholder="Enter food"><span onclick="deleteThis(event)" class="bg-red-200 rounded-full text-xs w-5 h-5 inline-flex items-center justify-center cursor-pointer hover:bg-red-300 duration-300"><i class="fas fa-minus"></i></span></div>`
+      wrapper.insertAdjacentHTML("beforeend", item)
+    }
+
+    form.onsubmit = (e) => {
+      e.preventDefault()
+      let i = 1;
+      wrapper.querySelectorAll('input').forEach(el => {
+        result.innerHTML += `<span class="bg-purple-600 text-white px-2 rounded">${el.value}</span>`
+
+        if (i == 1) {
+          el.value = ''
+        } else {
+          el.remove()
+        }
+
+        i++;
+      })
+    }
+
+    function deleteThis(e) {
+      e.target.closest('div').remove()
+    }
+
+    // Show / Hide Password
+    const show_btn = document.querySelector('.show-pass')
+
+    show_btn.onclick = () => {
+      console.log(show_btn.previousElementSibling.type);
+      let input = show_btn.previousElementSibling;
+
+      if (input.type == 'password') {
+        input.type = 'text'
+        show_btn.classList.replace('fa-eye', 'fa-eye-slash')
+      } else {
+        input.type = 'password'
+        show_btn.classList.replace('fa-eye-slash', 'fa-eye')
+      }
+
+    }
+  </script>
+</body>
+
+</html>
