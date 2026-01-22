@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form validation</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-sky-50 min-h-screen flex justify-center items-center">
+
+  <form class="w-xl p-4 rounded-xl bg-white shadow" action="">
+    <h1 class="text-center font-semibold text-xl mb-4">Register new account</h1>
+    <div class="mb-3">
+      <label for="">Name <span class="text-xs text-red-500">*</span></label>
+      <input type="text" class="w-full border required border-gray-200 outline-0 py-1.5 px-3 rounded"
+        placeholder="Your Name">
+      <small class="text-red-500 text-xs hidden">This field is required</small>
+    </div>
+    <div class="mb-3">
+      <label for="">Name <span class="text-xs text-red-500">*</span></label>
+      <input type="text" class="w-full border required border-gray-200 outline-0 py-1.5 px-3 rounded"
+        placeholder="Your Name">
+      <small class="text-red-500 text-xs hidden">This field is required</small>
+    </div>
+    <div class="mb-3">
+      <label for="">Name</label>
+      <input type="text" class="w-full border border-gray-200 outline-0 py-1.5 px-3 rounded" placeholder="Your Name">
+    </div>
+    <div class="mb-3">
+      <label for="">Name</label>
+      <input type="text" class="w-full border border-gray-200 outline-0 py-1.5 px-3 rounded" placeholder="Your Name">
+    </div>
+    <button
+      class="w-full bg-sky-500 text-white p-2 rounded mt-4 duration-200 cursor-pointer hover:bg-sky-600">Register</button>
+  </form>
+
+  <script>
+    const form = document.querySelector('form')
+    const inputs = document.querySelectorAll('form input.required')
+
+    form.onsubmit = (e) => {
+      inputs.forEach(el => {
+        if (el.value.trim().length == 0) {
+          e.preventDefault()
+          el.classList.replace('border-gray-200', 'border-red-500')
+          el.nextElementSibling.classList.remove('hidden')
+        } else {
+          el.classList.replace('border-red-500', 'border-gray-200')
+          el.nextElementSibling.classList.add('hidden')
+        }
+
+
+
+      })
+    }
+
+    inputs.forEach(el => {
+      el.onkeyup = () => {
+        if (el.value.trim().length > 0) {
+          el.classList.replace('border-gray-200', 'border-green-500')
+          el.classList.replace('border-red-500', 'border-green-500')
+        } else {
+          el.classList.replace('border-green-500', 'border-red-500')
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

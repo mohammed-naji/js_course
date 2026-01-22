@@ -1,5 +1,4 @@
 const users = [
-  "Adam",
   "Ayman",
   "Baraa",
   "Lana",
