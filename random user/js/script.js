@@ -4,7 +4,6 @@ const users = [
   "Lana",
   "Tasneem",
   "Alqebt",
-  "Tala",
   "Ameer",
   "Eslam",
   "Aseel",
