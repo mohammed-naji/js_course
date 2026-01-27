@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Questions</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap');
+
+    body {
+      font-family: "IBM Plex Sans Arabic", sans-serif;
+    }
+
+    .card {
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      transform-style: preserve-3d;
+    }
+
+    .card-face {
+      backface-visibility: hidden;
+    }
+
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+
+<body class="font-sans bg-gray-100 min-h-screen">
+
+  <h1 class="text-center mt-10 mb-6 text-4xl font-bold">
+    إختر رقم 😁
+  </h1>
+
+  <div id="cards" class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-4 px-4"></div>
+
+  <script>
+    // const questions = [
+    //   "What is a callback function?",
+    //   "What is a higher-order function?",
+    //   "What is map(), filter(), and reduce()?",
+    //   "What is localStorage?",
+    //   "What is JSON?",
+    //   "What is DOM?",
+    //   "Difference between var, let, const?",
+    //   "What is event bubbling?",
+    //   "What is hoisting?",
+    //   // "What is scope?",
+    //   "What is the difference between == and ===",
+    //   "What is event delegation?",
+    //   "What is the difference between null and undefined?",
+    //   "What is the difference between arrow function and normal function?",
+    //   "What is destructuring in JavaScript?",
+    //   "What is spread operator?"
+    // ];
+
+    const questions = [
+      "ما هي دالة الاستدعاء (Callback Function)؟",
+      "ما هي الدالة عالية المستوى (Higher-Order Function)؟",
+      "ما هي دوال map و filter و reduce؟",
+      "ما هو localStorage؟",
+      "ما هو JSON؟",
+      "ما هو الـ DOM؟",
+      "ما الفرق بين var و let و const؟",
+      "ما هو  (Event Bubbling)؟",
+      "ما هو (Hoisting)؟",
+      "ما الفرق بين == و ===؟",
+      "ما هو  (Event Delegation)؟",
+      "ما الفرق بين null و undefined؟",
+      "ما الفرق بين Arrow Function والدالة العادية؟",
+      "ما هو (Destructuring) في JavaScript؟",
+      "ما هو معامل الانتشار (Spread Operator)؟"
+    ];
+
+
+    questions.sort(() => Math.random() - 0.5);
+
+    const container = document.getElementById("cards");
+
+    questions.forEach((question, index) => {
+      const card = document.createElement("div");
+      card.className = "card cursor-pointer";
+
+      card.innerHTML = `
+        <div class="card-inner relative w-full h-[150px] transition-transform duration-500">
+          <div
+            class="card-face absolute inset-0 flex items-center justify-center
+                   rounded-xl bg-indigo-600 text-white text-3xl font-bold">
+            ${index + 1}
+          </div>
+          <div
+            class="card-face absolute inset-0 flex items-center justify-center
+                   rounded-xl bg-gray-200 text-gray-900 text-center p-4
+                   rotate-y-180">
+            ${question}
+          </div>
+        </div>
+      `;
+
+      card.addEventListener("click", () => {
+        card.querySelector(".card-inner")
+          .classList.toggle("rotate-y-180");
+      });
+
+      container.appendChild(card);
+    });
+  </script>
+
+</body>
+
+</html>
