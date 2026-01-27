@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="min-h-screen">
+
+  <!-- <button class="btn-success">Success</button> -->
+
+  <section class="mx-auto max-w-4xl my-10">
+    <form action="" class="p-10 rounded">
+      <div class="mb-4">
+        <label for="name1">Name 1</label>
+        <input type="text" id="name1" placeholder="Name 1"
+          class="w-full border rounded bg-white border-gray-300 outline-0 p-2">
+      </div>
+
+      <div class="mb-4">
+        <label for="name2">Name 2</label>
+        <input type="text" id="name2" placeholder="Name 2"
+          class="w-full border rounded bg-white border-gray-300 outline-0 p-2">
+      </div>
+
+      <button class="w-full p-2 cursor-pointer text-white rounded duration-300 hover:opacity-80">Calculate</button>
+      <p class="res my-4 text-center"></p>
+    </form>
+  </section>
+
+  <section class="py-10 min-h-[400px] bg text-center">
+    <h2 class="text-3xl font-semibold">Section Title</h2>
+
+    <div class="my-6 max-w-3xl mx-auto tab-wrapper">
+      <div>
+        <button data-tab="#tab1" class="bg-teal-300 p-2 px-4 cursor-pointer">Tab 1</button>
+        <button data-tab="#tab2" class="bg-gray-100 p-2 px-4 cursor-pointer">Tab 2</button>
+        <button data-tab="#tab3" class="bg-gray-100 p-2 px-4 cursor-pointer">Tab 3</button>
+        <button data-tab="#tab4" class="bg-gray-100 p-2 px-4 cursor-pointer">Tab 4</button>
+      </div>
+      <div>
+        <div id="tab1" class="bg-white p-6 border block">
+          <h2>Tab 1 Content</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae inventore deleniti quisquam, aliquid, modi
+            quibusdam molestiae, laboriosam consequatur ut similique in debitis numquam soluta praesentium saepe minus.
+            Ut, cum saepe.</p>
+        </div>
+
+        <div id="tab2" class="bg-white p-6 border hidden">
+          <h2>Tab 2 Content</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae inventore deleniti quisquam, aliquid, modi
+            quibusdam molestiae, laboriosam consequatur ut similique in debitis numquam soluta praesentium saepe minus.
+            Ut, cum saepe.</p>
+        </div>
+
+        <div id="tab3" class="bg-white p-6 border hidden">
+          <h2>Tab 3 Content</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae inventore deleniti quisquam, aliquid, modi
+            quibusdam molestiae, laboriosam consequatur ut similique in debitis numquam soluta praesentium saepe minus.
+            Ut, cum saepe.</p>
+        </div>
+
+        <div id="tab4" class="bg-white p-6 border hidden">
+          <h2>Tab 4 Content</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae inventore deleniti quisquam, aliquid, modi
+            quibusdam molestiae, laboriosam consequatur ut similique in debitis numquam soluta praesentium saepe minus.
+            Ut, cum saepe.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="py-10 min-h-[400px] text-center">
+    <h2 class="text-3xl font-semibold">Section Title</h2>
+  </section>
+
+  <section class="py-10 min-h-[400px] bg text-center">
+    <h2 class="text-3xl font-semibold">Section Title</h2>
+  </section>
+
+  <div class="fixed left-0 bottom-[-106px] duration-400 wrapper">
+    <button class="p-2 px-4 btn text-white hover:opacity-90 duration-300 cursor-pointer change-theme">Change
+      Theme</button>
+    <div class="grid grid-cols-2 gap-2 border border-gray-300 p-2 max-w-52 bg-white">
+      <button class="p-2 px-4 bg-red-500 text-white hover:opacity-90 duration-300 cursor-pointer"
+        data-color="251 44 54">Red</button>
+      <button class="p-2 px-4 bg-blue-500 text-white hover:opacity-90 duration-300 cursor-pointer"
+        data-color="43 127 255">Blue</button>
+      <button class="p-2 px-4 bg-green-500 text-white hover:opacity-90 duration-300 cursor-pointer"
+        data-color="0 201 81">Green</button>
+      <button class="p-2 px-4 bg-yellow-500 text-white hover:opacity-90 duration-300 cursor-pointer"
+        data-color="240 177 0">Yellow</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

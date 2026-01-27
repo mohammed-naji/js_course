@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-sky-50/50">
+
+  <div id="newmenu" class="w-40 shadow rounded z-30 bg-white fixed hidden">
+    <ul>
+      <li class="p-2 px-4 hover:bg-blue-100 cursor-pointer">New</li>
+      <li class="p-2 px-4 hover:bg-blue-100 cursor-pointer">Copy</li>
+      <li class="p-2 px-4 hover:bg-blue-100 cursor-pointer">Paste</li>
+      <li class="p-2 px-4 hover:bg-blue-100 cursor-pointer">Delete</li>
+    </ul>
+  </div>
+
+
+  <script>
+    const newmenu = document.querySelector('#newmenu')
+    let x = 0, y = 0
+    let targetBox = null;
+    let copyBox = null;
+
+    window.oncontextmenu = (e) => {
+      e.preventDefault();
+
+      targetBox = e.target.closest('.box');
+      x = e.clientX
+      y = e.clientY
+
+      newmenu.style.top = e.clientY + "px";
+      newmenu.style.left = e.clientX + "px";
+      newmenu.classList.remove('hidden')
+    }
+
+    document.onclick = () => newmenu.classList.add('hidden')
+
+    newmenu.onclick = (e) => {
+      // console.log(e.target.closest('.box'));
+      switch (e.target.textContent.toLowerCase()) {
+        case 'new':
+          // alert("New");
+          let item = `<div class="box p-4 rounded shadow bg-white w-60 fixed" style="top:${y}px;left:${x}px">
+    New Box.
+  </div>`
+          document.body.insertAdjacentHTML('beforeend', item)
+          break;
+
+        case 'copy':
+          copyBox = targetBox.cloneNode(true);
+          // alert("Copy");
+          break;
+
+        case 'paste':
+          copyBox.style.top = `${y}px`
+          copyBox.style.left = `${x}px`
+          document.body.appendChild(copyBox)
+          // document.body.insertAdjacentHTML('beforeend', copyBox)
+          // alert("Paste");
+          break;
+
+        case 'delete':
+          if (targetBox) targetBox.remove();
+          // targetBox.remove();
+          break;
+      }
+    }
+
+    // document.onkeydown = (e) => {
+    //   if (e.keyCode == 123) e.preventDefault()
+    // }
+
+
+    window.onmousedown = (e) => {
+      console.log(e);
+    }
+
+    window.onmousemove = (e) => {
+      console.log(e);
+    }
+  </script>
+</body>
+
+</html>
