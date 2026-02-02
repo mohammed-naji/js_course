@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .typing::after {
+      content: '|';
+      animation: puls 1s ease infinite;
+    }
+
+    @keyframes puls {
+      50% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-violet-50 min-h-screen">
+
+  <main>
+    <section>
+      <div class="max-w-3xl mx-auto grid sm:grid-cols-2 items-center gap-20 p-10 sm:p-0">
+        <div>
+          <h1 class="text-3xl font-black">Welcome To Our Website</h1>
+          <p class="text-xl mt-3 typing">This is an sample text to make typing effect</p>
+        </div>
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1769650796145-30df10357926?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-violet-100 py-20">
+      <div class="max-w-3xl mx-auto">
+        <div class="relative">
+          <input id="input-search" type="text" placeholder="Search here..."
+            class="w-full bg-white border outline-0 border-gray-300 rounded p-2">
+          <i class="fas fa-search text-gray-400 absolute top-3.5 right-3"></i>
+        </div>
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 my-4 gap-4 products-wrapper">
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="max-w-3xl mx-auto mt-10">
+    <div class="accordion" data-collapse="collapse">
+      <div class="item border bg-white">
+        <div
+          class="header p-4 bg-gray-100 duration-200 hover:bg-gray-200 cursor-pointer flex items-center justify-between">
+          <h2>Item #1 Title</h2>
+          <i class="fas duration-200 fa-chevron-down rotate-180"></i>
+        </div>
+        <div class="content duration-400 max-h-96 p-4">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi tenetur tempora possimus mollitia rerum quae
+            veniam magnam ipsa. Itaque minus mollitia nesciunt culpa ex officiis dolores voluptas accusantium corrupti
+            dolor!
+          </p>
+        </div>
+      </div>
+
+      <div class="item border bg-white">
+        <div
+          class="header p-4 bg-gray-100 duration-200 hover:bg-gray-200 cursor-pointer flex items-center justify-between">
+          <h2>Item #2 Title</h2>
+          <i class="fas duration-200 fa-chevron-down"></i>
+        </div>
+        <div class="content duration-400 max-h-0 overflow-hidden">
+          <p class="p-4">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi tenetur tempora possimus mollitia rerum quae
+            veniam magnam ipsa. Itaque minus mollitia nesciunt culpa ex officiis dolores voluptas accusantium corrupti
+            dolor!
+          </p>
+        </div>
+      </div>
+
+      <div class="item border bg-white">
+        <div
+          class="header p-4 bg-gray-100 duration-200 hover:bg-gray-200 cursor-pointer flex items-center justify-between">
+          <h2>Item #3 Title</h2>
+          <i class="fas duration-200 fa-chevron-down"></i>
+        </div>
+        <div class="content duration-400 max-h-0 overflow-hidden">
+          <p class="p-4">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi tenetur tempora possimus mollitia rerum quae
+            veniam magnam ipsa. Itaque minus mollitia nesciunt culpa ex officiis dolores voluptas accusantium corrupti
+            dolor!
+          </p>
+        </div>
+      </div>
+
+      <div class="item border bg-white">
+        <div
+          class="header p-4 bg-gray-100 duration-200 hover:bg-gray-200 cursor-pointer flex items-center justify-between">
+          <h2>Item #4 Title</h2>
+          <i class="fas duration-200 fa-chevron-down"></i>
+        </div>
+        <div class="content duration-400 max-h-0 overflow-hidden">
+          <p class="p-4">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi tenetur tempora possimus mollitia rerum quae
+            veniam magnam ipsa. Itaque minus mollitia nesciunt culpa ex officiis dolores voluptas accusantium corrupti
+            dolor!
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
