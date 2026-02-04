@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <title>Quiz</title>
+</head>
+
+<body class="bg-sky-50 min-h-screen">
+  <div class="max-w-xl mx-auto my-6">
+    <h2 class="text-center font-semibold text-2xl">Quiz App ❓</h2>
+
+    <div class="questions-wrapper my-6 grid gap-6">
+
+    </div>
+
+    <div class="result text-center min-h-60 flex-col justify-center hidden">
+      😁
+      <h2 class="text-3xl font-semibold my-4">Your Result</h2>
+      <h5 class="text-6xl font-semibold">2/3</h5>
+    </div>
+
+    <div class="text-center">
+      <button class="bg-sky-500 text-white p-2 rounded cursor-pointer duration-200 hover:bg-sky-600 btn-submit">Submit
+        Quiz
+        😍</button>
+    </div>
+
+  </div>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+
+
+    let questions = [
+      {
+        title: "Question Title 1",
+        answers: ["A", "B", "C", "D"],
+        correct: "C"
+      },
+      {
+        title: "Question Title 2",
+        answers: ["Mohammed", "Ahmed", "Ali", "Kamel"],
+        correct: "Ahmed"
+      },
+      {
+        title: "Question Title 3",
+        answers: ["Remah", "Seham", "Nebal", "Sawsan"],
+        correct: "Sawsan"
+      }
+    ]
+
+    const wrapper = document.querySelector('.questions-wrapper')
+    const result = document.querySelector('.result')
+    const submit = document.querySelector('.btn-submit')
+
+    questions.forEach((question, index) => {
+      let item = `<div class="question bg-white shadow-md rounded-md p-6" data-aos="fade-up">
+        <h2 class="font-semibold mb-4">${question.title}</h2>`;
+
+      question.answers.forEach(ans => {
+        item += `<label class="bg-gray-100/70 p-3 duration-200 hover:bg-gray-200 cursor-pointer rounded block mb-2"><input
+            type="radio" name="question${index}" value="${ans}"> ${ans}</label>`
+      })
+
+      item += `</div>`
+
+      wrapper.insertAdjacentHTML('beforeend', item)
+    })
+
+    submit.onclick = () => {
+      let score = 0;
+      questions.forEach((q, i) => {
+        let ans = document.querySelector(`[name=question${i}]:checked`)
+        if (ans.value == q.correct) score++
+      })
+
+      result.querySelector('h5').innerHTML = `${score}/${questions.length}`
+
+      wrapper.classList.replace('grid', 'hidden')
+      result.classList.replace('hidden', 'flex')
+    }
+  </script>
+</body>
+
+</html>
