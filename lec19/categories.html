@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="min-h-screen bg-cyan-50/50">
+
+  <div
+    class="modal fixed top-0 left-0 w-full h-full bg-slate-900/50 z-10 backdrop-blur-[1px] flex justify-center items-start invisible opacity-0 duration-300">
+    <div class="bg-white modal-content max-w-5xl min-w-3xl p-6 rounded shadow-2xl mt-40">
+      <form>
+        <h3 class="text-xl font-semibold mb-4">Add new Category</h3>
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <input type="text" name="name_en" class="p-2 rounded border border-gray-400 outline-0"
+            placeholder="English Name">
+          <input type="text" name="name_ar" class="p-2 rounded border border-gray-400 outline-0"
+            placeholder="Arabic Name">
+        </div>
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <textarea rows="4" name="description_en" class="p-2 rounded border border-gray-400 outline-0"
+            placeholder="English Description"></textarea>
+          <textarea rows="4" name="description_ar" class="p-2 rounded border border-gray-400 outline-0"
+            placeholder="Arabic Description"></textarea>
+        </div>
+        <div class="mb-4">
+          <label for="image">Image</label>
+          <input type="file" name="Image" id="image" class="p-2 rounded border border-gray-400 outline-0 w-full">
+        </div>
+        <button
+          class="bg-cyan-600 text-white p-2 px-4 rounded duration-200 hover:bg-cyan-700 cursor-pointer translatable"><i
+            class="fas fa-save"></i> Save</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto">
+    <button class="bg-gray-200 p-2 cursor-pointer change-lang translatable" data-en="العربية"
+      data-ar="English">العربية</button>
+    <div class="flex justify-between items-center my-6">
+      <h2 class="text-xl font-semibold translatable" data-en="Categories" data-ar="الاقسام">All Categories</h2>
+      <button
+        class="add-new bg-cyan-600 text-white p-2 px-4 rounded duration-200 hover:bg-cyan-700 cursor-pointer translatable"
+        data-en="Add New" data-ar="إضافة جديد">Add
+        New</button>
+    </div>
+
+
+
+    <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+      <table class="w-full categories-table bg-white shadow rounded text-sm text-left rtl:text-right text-body">
+        <thead class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default">
+          <tr>
+            <th scope="col" class="px-6 py-3 font-medium translatable" data-en="ID" data-ar="المعرف">
+              ID
+            </th>
+            <th scope="col" class="px-6 py-3 font-medium translatable" data-en="Image" data-ar="الصورة">
+              Image
+            </th>
+            <th scope="col" class="px-6 py-3 font-medium translatable" data-en="Name" data-ar="الاسم">
+              Name
+            </th>
+            <th scope="col" class="px-6 py-3 font-medium translatable" data-en="Actions" data-ar="العمليات">
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+
+  <script src="js/categories.js"></script>
+</body>
+
+</html>
